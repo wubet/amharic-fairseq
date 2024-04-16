@@ -7,9 +7,8 @@
 import os
 import subprocess
 import sys
-sys.path.append('/data/shared/wubet/project/lib64/python3.8/site-packages')
-sys.path.append('/opt/rh/gcc-toolset-11/root/usr/libexec/gcc/x86_64-redhat-linux/11/cc1plus')
-
+# sys.path.append('/data/shared/wubet/project2/lib64/python3.9/site-packages')
+# sys.path.append('/opt/rh/gcc-toolset-11/root/usr/libexec/gcc/x86_64-redhat-linux/11/cc1plus')
 from setuptools import Extension, find_packages, setup
 from torch.utils import cpp_extension
 
@@ -130,6 +129,9 @@ if "CUDA_HOME" in os.environ:
             ),
         ]
     )
+else:
+    # Optionally, print a message or perform other adjustments for a CPU-only build
+    print("CUDA_HOME not found. Building without CUDA support.")
 
 cmdclass = {"build_ext": cpp_extension.BuildExtension}
 
