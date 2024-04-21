@@ -73,7 +73,7 @@ python3 data/bilingual_data_processor.py \
 --en_file="unified-amharic-english-corpus/datasets/dev.am-en.base.en" \
 --am_file="unified-amharic-english-corpus/datasets/dev.am-en.transliteration.am" \
 --implementation="mmap" \
---data_bin_path="data-bin/vanilla/wmt23_en_am" \
+--data_bin_path="data-bin/wmt23_en_am" \
 --task_file="valid.en-am"
 ```
 
@@ -83,7 +83,7 @@ python3 data/bilingual_data_processor.py \
 --en_file="unified-amharic-english-corpus/datasets/test.am-en.base.en" \
 --am_file="unified-amharic-english-corpus/datasets/test.am-en.transliteration.am" \
 --implementation="mmap" \
---data_bin_path="data-bin/vanilla/wmt23_en_am" \
+--data_bin_path="data-bin/wmt23_en_am" \
 --task_file="test.en-am"
 ```
 Preparing Amharic translitration file for training
