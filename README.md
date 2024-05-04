@@ -103,8 +103,8 @@ python3 ../translitration/create_transliteration.py
 ### Train the Model
 In order to train the model use the following command:
 ```commandline
-python3 fairseq_cli/train
---arch=vanilla_transformer_wmt_en_am \
+python3 train.py \
+--arch=transformer_wmt_en_am \
 --source-lang=en \
 --target-lang=am \
 --share-decoder-input-output-embed \
@@ -119,7 +119,14 @@ python3 fairseq_cli/train
 --criterion=label_smoothed_cross_entropy \
 --label-smoothing=0.1 \
 --max-tokens=4096 \
---max-update=1500000 \
+--max-update=500000 \
+--eval-bleu \
+--eval-bleu-args="{\"beam\":5,\"max_len_a\":1.2,\"max_len_b\":10}" \
+--eval-bleu-detok=moses \
+--eval-bleu-remove-bpe \
+--eval-bleu-print-samples \
+--best-checkpoint-metric=bleu \
+--maximize-best-checkpoint-metric \
 --save-interval-updates=1000 \
 --keep-interval-updates=5 \
 data-bin/wmt23_en_am
